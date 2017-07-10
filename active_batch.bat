@@ -44,11 +44,8 @@ GOTO OFFICE
 		IF EXIST %COMMON% (
 			ECHO Office 2010 bulundu
 			ECHO office 2010 icin Kurulum basliyor. 
-			cscript //B %COMMON% /sethst:%SERVER%
-			cscript //B  %COMMON% /setprt:%PORT%
-			cscript //B  %COMMON% /act 
-			cls
-			echo ...OFFICE 2010 AKTIF EDILDI.....
+			GOTO OCOMRun		
+			
 
 		)
 		cscript %COMMON% /dstatus |findstr /I /B /C:"LICENSE STATUS:"|findstr /I  "LICENSED"
@@ -61,12 +58,7 @@ GOTO OFFICE
 		IF EXIST %X64_32% (
 			ECHO Office 2010 bulundu
 			ECHO office 2010 icin Kurulum basliyor. 
-			cscript //B  %X64_32% /sethst:%SERVER%
-			cscript //B  %X64_32% /setprt:%PORT%
-			cscript //B  %X64_32% /act
-			cls
-			
-
+			GOTO O64Run
 		)
 	   cscript %X64_32% /dstatus |findstr /I /B /C:"LICENSE STATUS:"|findstr /I  "LICENSED"
 	   SET FLAG=%ERRORLEVEL%
@@ -86,12 +78,7 @@ GOTO OFFICE
 		IF EXIST %COMMON% (
 			ECHO Office 2013 bulundu
 			ECHO office 2013 icin Kurulum basliyor. 
-			cscript //B  %COMMON% /sethst:%SERVER%
-			cscript //B  %COMMON% /setprt:%PORT%
-			cscript //B  %COMMON% /act
-			
-			
-		   
+			GOTO OCOMRun
 		   )
 		cscript %COMMON% /dstatus |findstr /I /B /C:"LICENSE STATUS:"|findstr /I  "LICENSED"
 		SET FLAG=%ERRORLEVEL%
@@ -103,12 +90,7 @@ GOTO OFFICE
 		 IF EXIST %X64_32% (
 			ECHO Office 2013 bulundu
 			ECHO office 2013 icin Kurulum basliyor. 
-			cscript //B  %X64_32% /sethst:%SERVER%
-			cscript //B  %X64_32% /setprt:%PORT%
-			cscript //B  %X64_32% /act
-			
-			
-		   
+			GOTO O64Run
 		   )
 		cscript %X64_32% /dstatus |findstr /I /B /C:"LICENSE STATUS:"|findstr /I  "LICENSED"
 		SET FLAG=%ERRORLEVEL%
@@ -127,12 +109,7 @@ GOTO OFFICE
 		IF EXIST %COMMON% (
 			ECHO Office 2016 bulundu
 			ECHO office 2016 icin Kurulum basliyor. 
-			cscript //B  %COMMON% /sethst:%SERVER%
-			cscript //B  %COMMON% /setprt:%PORT%
-			cscript //B  %COMMON% /act
-			
-			
-		   
+			GOTO OCOMRun
 		   )
 		cscript %COMMON% /dstatus |findstr /I /B /C:"LICENSE STATUS:"|findstr /I  "LICENSED"
 		SET FLAG=%ERRORLEVEL%
@@ -144,12 +121,7 @@ GOTO OFFICE
 		 IF EXIST %X64_32% (
 			ECHO Office 2016 bulundu
 			ECHO office 2016 icin Kurulum basliyor. 
-			cscript //B  %X64_32% /sethst:%SERVER%
-			cscript //B  %X64_32% /setprt:%PORT%
-			cscript //B  %X64_32% /act
-			
-			
-		   
+			GOTO O64Run
 		   )
 		cscript %X64_32% /dstatus |findstr /I /B /C:"LICENSE STATUS:"|findstr /I  "LICENSED"
 		SET FLAG=%ERRORLEVEL%
@@ -159,6 +131,17 @@ GOTO OFFICE
 	   
 	 :: =======================================================================
 
-
+ :O64Run
  
+		cscript //B  %X64_32% /sethst:%SERVER%
+		cscript //B  %X64_32% /setprt:%PORT%
+		cscript //B  %X64_32% /act
+ 
+ :OCOMRun
+ 
+	cscript //B  %COMMON% /sethst:%SERVER%
+	cscript //B  %COMMON% /setprt:%PORT%
+	cscript //B  %COMMON% /act
+
+	
 pause
