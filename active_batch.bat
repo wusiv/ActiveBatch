@@ -2,7 +2,7 @@
 
 
 :: Sunucu Adresi ve Portu
-SET SERVER=192.168.2.20   
+SET SERVER=192.168.2.20
 SET PORT=1688
 cd /d %~dp0
 cls
