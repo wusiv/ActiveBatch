@@ -1,6 +1,7 @@
 @echo off
 
-
+::Run as Administrator Rights
+::Lutfen Yonetici Yetkisi ile calisitiriniz
 :: Sunucu Adresi ve Portu
 SET SERVER=192.168.2.20
 SET PORT=1688
