@@ -32,7 +32,7 @@ GOTO OFFICE
 	cscript  %COMMON% /dlv | findstr /I /B /C:"License Status:" |findstr /I "Licensed"
 	SET FLAG=%ERRORLEVEL%
 	IF %FLAG%==0 (
-		ECHO WINDOWS AKTIF EDILDI.... 
+		ECHO WINDOWS IS ACTIVATED
 	)
 	
 :OFFICE
